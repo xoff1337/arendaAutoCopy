@@ -212,8 +212,13 @@ img{
 	}
 }
 
-.car-item-image img{
+.car-item:hover div.car-item-image > img {
+	transform: scale(1.1);
+}
+
+.car-item-image img {
 	width: 100%;
+	transition: all .5s;
 }
 
 .car-item-title {
@@ -257,6 +262,10 @@ img{
 }
 .car-item-point img {
 	margin-bottom: 11px;
+	transition: all .5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+.car-item:hover div.wheel-img > img {
+	transform: rotate(360deg);
 }
 .car-item-point > div:nth-child(2) {
 	font-weight: bold;
