@@ -1,26 +1,22 @@
-let mainButton = document.getElementById("main-action");
-let carButtons = document.getElementsByClassName("car-button");
-let priceButton = document.getElementById("price-action");
+document.getElementById("main-action").addEventListener('click', () => {
+	document.getElementById('cars').scrollIntoView({behavior: "smooth"});
+});
 
-mainButton.onclick = function () {
-	document.getElementById("cars").scrollIntoView({behavior: "smooth"});
-}
-for (var i = 0; i < carButtons.length; i++) {
-	carButtons[i].onclick = function () {
-		document.getElementById("price").scrollIntoView({behavior: "smooth"});
-	}
-}
-priceButton.onclick = function () {
-	if (document.getElementById("name").value === "") {
-		alert('Заполните имя')
-	} else if (document.getElementById("phone").value === "") {
-		alert('Заполните телефон')
-	} else if (document.getElementById("car").value === "") {
-		alert('Заполните автомобиль')
-	} else {
-		alert('Спасибо за заявку, мы свяжемся с вами в ближайшее время.')
-	}
-}
+let carButtons = document.querySelectorAll(".car-button");
+carButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        document.getElementById('price').scrollIntoView({behavior: "smooth"});
+				document.getElementById('car').value = button.parentElement.getElementsByClassName("car-item-title")[0].innerHTML;
+
+        document.getElementById('select-car').value = button.parentElement.getElementsByClassName("car-item-title")[0].innerHTML; /*hidden*/
+    });    
+});
+
+document.getElementById('validation').addEventListener('click', function() {
+	if (document.getElementById("price-form").checkValidity()) {
+			alert('Спасибо за Вашу заявку.\nМы свяжемся с Вами в ближайшее время.')
+	} 
+})
 
 document.addEventListener("DOMContentLoaded", function () {
 	let layer = document.querySelector('.price-image');

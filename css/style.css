@@ -1,5 +1,6 @@
 :root{
 	--main-color: #030305; /* var(--main-color, #030305) */
+	--second-color: var(--second-color, #5D5D5F); /* var(--second-color, #5D5D5F) */
 	--main-fontsize: 16px; /* var(--main-fontsize, 16px) */
 }
 
@@ -271,11 +272,9 @@ img{
 	font-weight: bold;
 }
 
-.car-item-action {
-	margin-top: 15px;
-}
-.car-item-action .button {
+.car-items .car-button {
 	width: 100%;
+	margin-top: 15px;
 	padding: 15px;
 	height: 54px;
 } 
@@ -296,20 +295,19 @@ img{
 .price-text {
 	font-size: var(--main-fontsize, 16px);
 	line-height: 130%;
-	color: #5D5D5F;
+	color: var(--second-color, #5D5D5F);
 	margin-bottom: 60px;
 }
 
 .price-form {
 	max-width: 344px;
 }
-
-.price-input {
+.price-form input {
 	padding: 22px 18px;
 	width: 344px;
 	height: 65px;
 	background: #FFFFFF;
-	border: 1px solid #5D5D5F;
+	border: 1px solid var(--second-color, #5D5D5F);
 	box-sizing: border-box;
 	font-size: var(--main-fontsize, 16px);
 	color: #000;
@@ -323,8 +321,11 @@ img{
 	}
 }
 
-.price-input::placeholder {
-	color: #5D5D5F;
+.price-form input::placeholder {
+	color: var(--second-color, #5D5D5F);
+}
+.price-form input:focus:invalid {
+	border: 1px solid red;
 }
 
 .price .button {
